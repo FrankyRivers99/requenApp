@@ -7,3 +7,4 @@ pandas
 pillow
 pyOpenSSL
 openpyxl
+pyinstaller
