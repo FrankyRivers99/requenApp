@@ -63,15 +63,8 @@ def get_xml(nombre_archivo):
         print(f"Error: {err}")
 
 def formateo_xml(element, data, indent=""):    
-    # Imprimimos la etiqueta y el texto del elemento
-    #print("############################Etiqueta y texto elemento############################################")
-    #En element.tag. "tag" Siempre sera lo que este despues de cfdi en los xml del SAT cfdi:Comprobante => tag==Comprobante
-    #print(f"{indent}<{element.tag}>")
-    
-    #Todo lo que siga despues del tag en el xml y en el mismo nivel se considera un atributo(attr) y tiene un valor asignado(value)
     # Recorremos los atributos del elemento (si tiene)
     for attr, value in element.attrib.items():
-        #print(f"{indent}  @{attr} = {value}")
         data.append((attr, value))
     
 

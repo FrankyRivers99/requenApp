@@ -1,12 +1,24 @@
-#gui.py
 import tkinter as tk
 from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
+import os
+import sys
+
+#Función para obtener la ruta absoluta
+def resource_path(relative_path):
+    """Obtiene la ruta absoluta al recurso, funciona para desarrollo y PyInstaller."""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 # GUI Principal
 def crear_ventana_principal():
-    # Cargar la imagen de fondo
-    imagen_original = Image.open("assets/ying_yang.png")
+    # Cargar la imagen de fondo usando resource_path
+    imagen_original = Image.open(resource_path("assets/ying_yang.png"))
     # Función al cerrado de ventana
     def on_closing():
         root.destroy()
@@ -55,7 +67,7 @@ def crear_ventana_principal():
     # Opacidad
     root.attributes("-alpha", 1) 
     # Icono de la ventana
-    root.iconbitmap("assets/icon_root.ico")           
+    root.iconbitmap(resource_path("assets/icon_root.ico"))
     # Crear una etiqueta e invocar su constructor pasando los atributos
     lbl_inicio = tk.Label(root, text= 'Bienvenido a Requenapp')
     lbl_inicio.config(font=("Times New Roman", 12), bg='white', fg='black')

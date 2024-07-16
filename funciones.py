@@ -1,4 +1,3 @@
-#funciones.py
 import random
 import os
 import shutil
